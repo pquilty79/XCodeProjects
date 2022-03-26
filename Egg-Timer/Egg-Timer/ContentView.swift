@@ -10,22 +10,15 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    @ObservedObject var timer = MyTimer()
     @State var textToUpdate = "How do you like your eggs?"
+   
     
-    func fireTime(Timer: Timer) {
-        print("Timer fired!")
-        
-    }
-    let softTime = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
-        Sounds.playSounds(soundfile: "EggTimer_alarm_sound.mp3")
-    }
-    let mediumTime = Timer.scheduledTimer(withTimeInterval: 420.0, repeats: false) { timer in
-        Sounds.playSounds(soundfile: "EggTimer_alarm_sound.mp3")
-    }
-    let hardTime = Timer.scheduledTimer(withTimeInterval: 720.0, repeats: false) { timer in
-        Sounds.playSounds(soundfile: "EggTimer_alarm_sound.mp3")
-    }
+    let softTime = 300
+    let mediumTime = 420
+    let hardTime = 720
+
+  
 
     var body: some View {
         ZStack {
@@ -34,13 +27,15 @@ struct ContentView: View {
                 Text(textToUpdate)
                     .foregroundColor(.white)
                     .font(.title)
-                    .padding(.bottom, 40)
+                    .padding(.top, 20)
+                Text(timer.countToUpdate)
+                    .foregroundColor(.white)
+                    .font(.title)
                     .padding(.top, 20)
                 HStack{
                     Button(action:{
                         textToUpdate = "Soft"
-                        fireTime(Timer: softTime)
-        
+                        timer.startTimer(secondsRemaining: softTime)
                     }, label: {
                         ZStack {
                         Image("soft_egg")
@@ -52,9 +47,10 @@ struct ContentView: View {
                                 .bold()
                         }
                         })
+                    .shadow(radius: 10.0)
                     Button(action:{
                         textToUpdate = "Medium"
-                        fireTime(Timer: mediumTime)
+                        timer.startTimer(secondsRemaining: mediumTime)
                     }, label: {
                         ZStack {
                         Image("medium_egg")
@@ -66,9 +62,10 @@ struct ContentView: View {
                                 .bold()
                         }
                         })
+                    .shadow(radius: 10.0)
                     Button(action:{
                         textToUpdate = "Hard"
-                        fireTime(Timer: hardTime)
+                        timer.startTimer(secondsRemaining: hardTime)
                     }, label: {
                         ZStack {
                         Image("hard_egg")
@@ -79,11 +76,32 @@ struct ContentView: View {
                                 .font(.title2)
                                 .bold()
                         }
-                        })
+                    })
+                    .shadow(radius: 10.0)
             }
                 .padding(.bottom, 60)
-        }
+                
+               
+                Button(action:{
+                    textToUpdate = "How do you like your eggs?"
+                    timer.countToUpdate = " "
+                    Sounds.stopSounds()
+                    timer.timer.invalidate()
+                }, label: {
+                    Text("Clear")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .bold()
+                        .frame(width: 100, height: 35)
+                        .padding()
+                })
+                .background(.blue)
+                .cornerRadius(50)
+                .shadow(radius: 10.0)
+            }
+
     }
+        
     }
 }
 

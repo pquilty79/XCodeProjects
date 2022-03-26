@@ -17,6 +17,7 @@
 		7C44EE1527ECC1380016FCF3 /* Egg_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EE1427ECC1380016FCF3 /* Egg_TimerUITests.swift */; };
 		7C44EE1727ECC1380016FCF3 /* Egg_TimerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EE1627ECC1380016FCF3 /* Egg_TimerUITestsLaunchTests.swift */; };
 		7C44EE2427ECC1770016FCF3 /* EggTimer_alarm_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C44EE2327ECC1770016FCF3 /* EggTimer_alarm_sound.mp3 */; };
+		7C52561127EF3C8100D2A06D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52561027EF3C8100D2A06D /* MyTimer.swift */; };
 		7C6C4E1427ECE8870049E117 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C4E1327ECE8870049E117 /* Sounds.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		7C44EE1427ECC1380016FCF3 /* Egg_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Egg_TimerUITests.swift; sourceTree = "<group>"; };
 		7C44EE1627ECC1380016FCF3 /* Egg_TimerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Egg_TimerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7C44EE2327ECC1770016FCF3 /* EggTimer_alarm_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EggTimer_alarm_sound.mp3; sourceTree = "<group>"; };
+		7C52561027EF3C8100D2A06D /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		7C6C4E1327ECE8870049E117 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				7C44EDFF27ECC1370016FCF3 /* Egg_Timer.xcdatamodeld */,
 				7C44EDFA27ECC1370016FCF3 /* Preview Content */,
 				7C6C4E1327ECE8870049E117 /* Sounds.swift */,
+				7C52561027EF3C8100D2A06D /* MyTimer.swift */,
 			);
 			path = "Egg-Timer";
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				7C44EDFE27ECC1370016FCF3 /* Persistence.swift in Sources */,
 				7C44EE0127ECC1370016FCF3 /* Egg_Timer.xcdatamodeld in Sources */,
 				7C6C4E1427ECE8870049E117 /* Sounds.swift in Sources */,
+				7C52561127EF3C8100D2A06D /* MyTimer.swift in Sources */,
 				7C44EDF727ECC1370016FCF3 /* ContentView.swift in Sources */,
 				7C44EDF527ECC1370016FCF3 /* Egg_TimerApp.swift in Sources */,
 			);

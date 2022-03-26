@@ -25,4 +25,10 @@ import AVFoundation
            }
        }
     }
+     
+     
+     
+     static func stopSounds() {
+         audioPlayer?.stop()
+     }
  }
