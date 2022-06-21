@@ -18,7 +18,6 @@ struct ContentView: View {
     let mediumTime = 420
     let hardTime = 720
 
-  
 
     var body: some View {
         ZStack {
@@ -31,7 +30,7 @@ struct ContentView: View {
                 Text(timer.countToUpdate)
                     .foregroundColor(.white)
                     .font(.title)
-                    .padding(.top, 20)
+                
                 HStack{
                     Button(action:{
                         textToUpdate = "Soft"
