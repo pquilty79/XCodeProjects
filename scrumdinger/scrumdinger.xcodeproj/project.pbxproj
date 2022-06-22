@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C809A9A2862AD0800740701 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C809A992862AD0800740701 /* DetailEditView.swift */; };
 		7CFD94EB28625D9F009F8269 /* scrumdingerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD94EA28625D9F009F8269 /* scrumdingerApp.swift */; };
 		7CFD94ED28625D9F009F8269 /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD94EC28625D9F009F8269 /* MeetingView.swift */; };
 		7CFD94EF28625D9F009F8269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94EE28625D9F009F8269 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C809A992862AD0800740701 /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		7CFD94E728625D9F009F8269 /* scrumdinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scrumdinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFD94EA28625D9F009F8269 /* scrumdingerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scrumdingerApp.swift; sourceTree = "<group>"; };
 		7CFD94EC28625D9F009F8269 /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				7CFD952028626494009F8269 /* TrailingIconLabelStyle.swift */,
 				7CFD9522286266EA009F8269 /* ScrumsView.swift */,
 				7CFD952428626C38009F8269 /* DetailView.swift */,
+				7C809A992862AD0800740701 /* DetailEditView.swift */,
 			);
 			path = scrumdinger;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				7CFD952128626494009F8269 /* TrailingIconLabelStyle.swift in Sources */,
 				7CFD94ED28625D9F009F8269 /* MeetingView.swift in Sources */,
 				7CFD951B28626241009F8269 /* Theme.swift in Sources */,
+				7C809A9A2862AD0800740701 /* DetailEditView.swift in Sources */,
 				7CFD94EB28625D9F009F8269 /* scrumdingerApp.swift in Sources */,
 				7CFD94F728625D9F009F8269 /* scrumdinger.xcdatamodeld in Sources */,
 			);
