@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3E23D02863A251002B13B9 /* ScrumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3E23CF2863A251002B13B9 /* ScrumStore.swift */; };
 		7C809A9A2862AD0800740701 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C809A992862AD0800740701 /* DetailEditView.swift */; };
 		7C83EAD828633B1C00B787A3 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C83EAD728633B1C00B787A3 /* ThemeView.swift */; };
 		7C83EADA2863432F00B787A3 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C83EAD92863432F00B787A3 /* ThemePicker.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C3E23CF2863A251002B13B9 /* ScrumStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumStore.swift; sourceTree = "<group>"; };
 		7C809A992862AD0800740701 /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		7C83EAD728633B1C00B787A3 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		7C83EAD92863432F00B787A3 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				7C83EADD286362F400B787A3 /* ScrumTimer.swift */,
 				7C83EAE3286368FA00B787A3 /* AVPlayer+Ding.swift */,
 				7C83EAE828636F4400B787A3 /* History.swift */,
+				7C3E23CF2863A251002B13B9 /* ScrumStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				7C83EADA2863432F00B787A3 /* ThemePicker.swift in Sources */,
 				7CFD951F2862634E009F8269 /* CardView.swift in Sources */,
 				7CFD9523286266EA009F8269 /* ScrumsView.swift in Sources */,
+				7C3E23D02863A251002B13B9 /* ScrumStore.swift in Sources */,
 				7C83EAE02863642900B787A3 /* MeetingFooterView.swift in Sources */,
 				7C83EADC2863510D00B787A3 /* MeetingHeaderView.swift in Sources */,
 				7CFD952528626C38009F8269 /* DetailView.swift in Sources */,
