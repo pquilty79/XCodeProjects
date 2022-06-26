@@ -59,7 +59,7 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         if numberOfAttempts < 5 {
             guard isAtLeastThreeLetters(word: answer) else {
-                wordError(title: "Length error", message: "Accepted words must be 2 or more letters")
+                wordError(title: "Length error", message: "Accepted words must be 3 or more letters")
                 numberOfAttempts += 1
                 return
             }
@@ -110,7 +110,7 @@ struct ContentView: View {
     }
     
     func isAtLeastThreeLetters(word: String) -> Bool {
-        word.count > 3
+        word.count > 2
     }
     
     func isPossible(word: String) -> Bool {
