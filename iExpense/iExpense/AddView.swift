@@ -43,7 +43,7 @@ struct AddView: View {
                             }
                             ToolbarItem(placement: .navigationBarTrailing) {
                                     Button("Save") {
-                                        let item = ExpenseItem(name: name, type: type, location: location, amount: amount)
+                                        let item = ExpenseItem(name: name, type: type, location: location, amount: amount, receipt: Receipt(withImage:scannedImages))
                                         expenses.items.append(item)
                                         dismiss()
                                     }

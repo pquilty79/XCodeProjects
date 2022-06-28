@@ -14,4 +14,22 @@ struct ExpenseItem: Identifiable, Codable {
     let type: String
     let location: String
     let amount: Double
+    let receipt: Receipt
+}
+
+struct Receipt: Codable{
+    let imageData: Data?
+    
+    init(withImage image: UIImage) {
+        self.imageData = image.pngData()
+    }
+
+    func getImage() -> UIImage? {
+        guard let imageData = self.imageData else {
+            return nil
+        }
+        let image = UIImage(data: imageData)
+        
+        return image
+    }
 }
