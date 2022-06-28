@@ -15,11 +15,11 @@ struct AddView: View {
     @State private var amount = 0.0
     @ObservedObject var expenses: Expenses
     @Environment(\.dismiss) var dismiss
-//    @State private var receipt: UIImage
-
+    @State private var showScanner = false
+    @State private var scannedImages = UIImage()
     
     let types = ["Business", "Personal"]
-//    let vc = VNDocumentCameraViewController()
+
     
     var body: some View {
         NavigationView {
@@ -50,14 +50,30 @@ struct AddView: View {
                                 }
                             }
                         }
+                Image(uiImage: scannedImages)
                 Button {
-
+                    showScanner = true
                 } label: {
                     Text("Scan Receipt")
                     Image(systemName: "camera")
                     }
                 }
             }
+        .sheet(isPresented: $showScanner, content: {
+            ScannerView { result in
+                switch result {
+                case .success(let scannedPages):
+                    scannedImages = scannedPages[0]
+                case .failure(let error):
+                        print(error.localizedDescription)
+                }
+                
+                showScanner = false
+                
+            } didCancelScanning: {
+                showScanner = false
+            }
+        })
         }
     }
 
