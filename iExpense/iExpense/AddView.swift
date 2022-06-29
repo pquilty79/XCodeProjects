@@ -34,23 +34,24 @@ struct AddView: View {
                     }
                     TextField("Amount", value: $amount, format: .currency(code: "USD"))
                         .keyboardType(.decimalPad)
-                        .navigationTitle("Add new expense")
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                    Button("Cancel") {
-                                        dismiss()
-                                }
-                            }
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                    Button("Save") {
-                                        let item = ExpenseItem(name: name, type: type, location: location, amount: amount, receipt: Receipt(withImage:scannedImages))
-                                        expenses.items.append(item)
-                                        dismiss()
-                                    }
-                                }
+                    Image(uiImage: scannedImages).resizable().frame(width: 200.0, height: 300.0)
+                }
+                .navigationTitle("Add new expense")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                            Button("Cancel") {
+                                dismiss()
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Save") {
+                                let item = ExpenseItem(name: name, type: type, location: location, amount: amount, receipt: Receipt(withImage:scannedImages))
+                                expenses.items.append(item)
+                                dismiss()
                             }
                         }
-                Image(uiImage: scannedImages)
+                    }
+
                 Button {
                     showScanner = true
                 } label: {
