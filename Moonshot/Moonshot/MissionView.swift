@@ -36,41 +36,15 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 6)
                         .padding(.top)
-                    Text("Launched: \(mission.formattedLaunchDate)") .foregroundColor(.white)
-                        .font(.headline)
+                    if let date = mission.launchDate {
+                        Label(date.formatted(date: .complete, time: .omitted), systemImage: "calendar")
+                    }
                     VStack(alignment: .leading) {
                         Text("Crew")
                             .font(.title.bold())
                             .padding(.bottom, 5)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(crew, id: \.role) { crewMember in
-                                    NavigationLink {
-                                        AstronautView(astronaut: crewMember.astronaut)          } label: {
-                                        HStack {
-                                            Image(crewMember.astronaut.id)
-                                                .resizable()
-                                                .frame(width: 104, height: 72)
-                                                .clipShape(Circle())
-                                                .overlay(Circle()
-                                                .strokeBorder(.white, lineWidth: 1))
-                                            VStack(alignment: .leading) {
-                                                Text(crewMember.astronaut.name)
-                                                    .foregroundColor(.white)
-                                                    .font(.headline)
-                                                Text(crewMember.role)
-                                                    .foregroundColor(.secondary)
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                    }
-                                }
-                            }
-                        }
-                        Rectangle()
-                            .frame(height: 2)
-                            .foregroundColor(.lightBackground)
-                            .padding(.vertical)
+                        RosterView(crew: crew)
+                        CustomDivider()
                         Text("Mission Highlights")
                             .font(.title.bold())
                             .padding(.bottom, 5)

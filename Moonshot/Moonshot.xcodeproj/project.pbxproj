@@ -107,6 +107,10 @@
 		7CEC6617286DE705002FD17C /* aldrin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CEC65BF286DE705002FD17C /* aldrin@2x.jpg */; };
 		7CEC661B286DE80B002FD17C /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC661A286DE80B002FD17C /* MissionView.swift */; };
 		7CEC661D286DEE04002FD17C /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC661C286DEE04002FD17C /* AstronautView.swift */; };
+		7CEC6623286DFC35002FD17C /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6622286DFC35002FD17C /* CustomDivider.swift */; };
+		7CEC6625286DFD70002FD17C /* RosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6624286DFD70002FD17C /* RosterView.swift */; };
+		7CEC6627286DFF7E002FD17C /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6626286DFF7E002FD17C /* GridLayout.swift */; };
+		7CEC6629286E153F002FD17C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6628286E153F002FD17C /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +215,10 @@
 		7CEC65BF286DE705002FD17C /* aldrin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "aldrin@2x.jpg"; sourceTree = "<group>"; };
 		7CEC661A286DE80B002FD17C /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		7CEC661C286DEE04002FD17C /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
+		7CEC6622286DFC35002FD17C /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		7CEC6624286DFD70002FD17C /* RosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterView.swift; sourceTree = "<group>"; };
+		7CEC6626286DFF7E002FD17C /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		7CEC6628286E153F002FD17C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,11 +259,15 @@
 				7CEC655B286DD114002FD17C /* astronauts.json */,
 				7CEC655D286DD125002FD17C /* missions.json */,
 				7CEC661A286DE80B002FD17C /* MissionView.swift */,
+				7CEC6626286DFF7E002FD17C /* GridLayout.swift */,
+				7CEC6624286DFD70002FD17C /* RosterView.swift */,
+				7CEC6622286DFC35002FD17C /* CustomDivider.swift */,
 				7CEC661C286DEE04002FD17C /* AstronautView.swift */,
 				7CEC6551286DCE47002FD17C /* Assets.xcassets */,
 				7CEC6567286DE705002FD17C /* Images */,
 				7CEC6553286DCE47002FD17C /* Preview Content */,
 				7CEC6563286DDEA3002FD17C /* Mission.swift */,
+				7CEC6628286E153F002FD17C /* ListView.swift */,
 			);
 			path = Moonshot;
 			sourceTree = "<group>";
@@ -530,7 +542,11 @@
 				7CEC6550286DCE46002FD17C /* ContentView.swift in Sources */,
 				7CEC654E286DCE46002FD17C /* MoonshotApp.swift in Sources */,
 				7CEC6564286DDEA3002FD17C /* Mission.swift in Sources */,
+				7CEC6625286DFD70002FD17C /* RosterView.swift in Sources */,
+				7CEC6629286E153F002FD17C /* ListView.swift in Sources */,
 				7CEC6562286DD1C1002FD17C /* Bundle-Decodable.swift in Sources */,
+				7CEC6623286DFC35002FD17C /* CustomDivider.swift in Sources */,
+				7CEC6627286DFF7E002FD17C /* GridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
