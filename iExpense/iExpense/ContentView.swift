@@ -14,14 +14,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(expenses.items) { item in HStack {
+                ForEach(expenses.items) { item in
+                    NavigationLink {
+                        ExpenseView(expense: item)
+                    } label: {
+                    HStack {
                     VStack {
                         Text("\(item.name) - \(item.location)").font(.headline)
                         Text(item.type)
                     }
                     Spacer()
                     Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                }
+                        }
+                    }
                 }
                 .onDelete(perform: removeItems)
             }

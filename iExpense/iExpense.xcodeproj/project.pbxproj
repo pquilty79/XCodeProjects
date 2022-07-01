@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C4AD8C2286F39CF00C31B95 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AD8C1286F39CF00C31B95 /* ExpenseView.swift */; };
+		7C4AD8C4286F3FBD00C31B95 /* CodeUpCertificate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C4AD8C3286F3FBD00C31B95 /* CodeUpCertificate.png */; };
 		7C6BD396286A274300809E74 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BD395286A274300809E74 /* iExpenseApp.swift */; };
 		7C6BD398286A274300809E74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6BD397286A274300809E74 /* ContentView.swift */; };
 		7C6BD39A286A274500809E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6BD399286A274500809E74 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C4AD8C1286F39CF00C31B95 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
+		7C4AD8C3286F3FBD00C31B95 /* CodeUpCertificate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CodeUpCertificate.png; sourceTree = "<group>"; };
 		7C6BD392286A274300809E74 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6BD395286A274300809E74 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		7C6BD397286A274300809E74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,12 +67,14 @@
 				7C6BD3A9286A49A400809E74 /* Info.plist */,
 				7C6BD395286A274300809E74 /* iExpenseApp.swift */,
 				7C6BD397286A274300809E74 /* ContentView.swift */,
+				7C4AD8C1286F39CF00C31B95 /* ExpenseView.swift */,
 				7C6BD3A7286A351900809E74 /* AddView.swift */,
 				7C6BD399286A274500809E74 /* Assets.xcassets */,
 				7C6BD39B286A274500809E74 /* Preview Content */,
 				7C6BD3A3286A2E5800809E74 /* ExpenseItem.swift */,
 				7C6BD3A5286A2EAC00809E74 /* Expenses.swift */,
 				7C6BD3B0286A5D8900809E74 /* ScannerView.swift */,
+				7C4AD8C3286F3FBD00C31B95 /* CodeUpCertificate.png */,
 			);
 			path = iExpense;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4AD8C4286F3FBD00C31B95 /* CodeUpCertificate.png in Resources */,
 				7C6BD39D286A274500809E74 /* Preview Assets.xcassets in Resources */,
 				7C6BD39A286A274500809E74 /* Assets.xcassets in Resources */,
 			);
@@ -154,6 +161,7 @@
 				7C6BD3A6286A2EAC00809E74 /* Expenses.swift in Sources */,
 				7C6BD398286A274300809E74 /* ContentView.swift in Sources */,
 				7C6BD3A8286A351900809E74 /* AddView.swift in Sources */,
+				7C4AD8C2286F39CF00C31B95 /* ExpenseView.swift in Sources */,
 				7C6BD3B1286A5D8900809E74 /* ScannerView.swift in Sources */,
 				7C6BD3A4286A2E5800809E74 /* ExpenseItem.swift in Sources */,
 				7C6BD396286A274300809E74 /* iExpenseApp.swift in Sources */,
