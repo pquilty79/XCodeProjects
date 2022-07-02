@@ -26,17 +26,27 @@ struct ContentView: View {
     @State private var numberOfQuestion = 0
     @State private var levelNumber = 1
     @State private var previousNumber = 0.0
+    @State private var previousSecondNumber = 0.0
+    @State private var score = 0
+    
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .white
+    }
     
     var body: some View {
         VStack {
-            Text("Level \(levelNumber)").font(.system(size: 20))
+            Text("Level \(levelNumber)").font(.system(size: 20)).bold()
+            Text("Question \(numberOfQuestion) of 10").font(.system(size: 20))
             Image(uiImage: #imageLiteral(resourceName: "horse.png"))
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
+                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+            Text("Score: \(score)")
+                .font(.system(size: 30))
             Text("What kind of math do you want to practice today?")
                 .font(.system(size: 20))
-                .padding()
                 .multilineTextAlignment(.center)
             HStack{
                 Button {
@@ -49,10 +59,13 @@ struct ContentView: View {
                    chosenOperand = "plus"
                    chooseOperand(chosenOperand: chosenOperand)
                 } label: {
-                    Image(systemName: "plus.square.fill").resizable()
+                    Image(systemName: "plus.circle.fill")
+                        .renderingMode(.original)
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .padding(.horizontal)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.yellow)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
                 .scaleEffect(plusAnimation)
                 .animation(.default, value: plusAnimation)
@@ -66,11 +79,13 @@ struct ContentView: View {
                     chosenOperand = "minus"
                     chooseOperand(chosenOperand: chosenOperand)
                 } label: {
-                    Image(systemName: "minus.square.fill")
+                    Image(systemName: "minus.circle.fill")
+                        .renderingMode(.original)
                         .resizable()
                         .frame(width: 50, height: 50)
                         .padding(.horizontal)
                         .foregroundColor(.pink)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
                 .scaleEffect(minusAnimation)
                 .animation(.default, value: minusAnimation)
@@ -84,10 +99,14 @@ struct ContentView: View {
                     chosenOperand = "multiply"
                     chooseOperand(chosenOperand: chosenOperand)
                 } label: {
-                    Image(systemName: "multiply.square.fill").resizable()
+                    
+                    Image(systemName: "multiply.circle.fill")
+                        .renderingMode(.original)
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .padding(.horizontal)
                         .foregroundColor(.purple)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
                 .scaleEffect(multiplyAnimation)
                 .animation(.default, value: multiplyAnimation)
@@ -101,10 +120,13 @@ struct ContentView: View {
                     chosenOperand = "divide"
                     chooseOperand(chosenOperand: chosenOperand)
                 } label: {
-                    Image(systemName: "divide.square.fill").resizable()
+                    Image(systemName: "divide.circle.fill")
+                        .renderingMode(.original)
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .padding(.horizontal)
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.orange)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
                 .scaleEffect(divideAnimation)
                 .animation(.default, value:divideAnimation)
@@ -118,10 +140,10 @@ struct ContentView: View {
                         .font(.system(size: 50))
                     Text(String(Int(numberTwo)))
                         .font(.system(size: 50))
-                    Text("= ? ")
+                    Text("=")
                         .font(.system(size: 50))
                     Spacer()
-                }
+                }.listRowBackground(Color.blue.opacity(0.05))
                 TextField("Answer", text: $milaAnswer)
                         .font(Font.system(size: 50, design: .default))
                         .keyboardType(.numberPad)
@@ -131,6 +153,7 @@ struct ContentView: View {
                                 self.milaAnswer = filtered
                             }
                         }
+                    .listRowBackground(Color.blue.opacity(0.05))
                     .multilineTextAlignment(.center)
             }
             .padding(.horizontal)
@@ -143,9 +166,9 @@ struct ContentView: View {
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .background(RoundedRectangle(cornerRadius: 25).fill(Color.red))
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
                     }
-            Text("\(numberCorrect) out of \(numberOfQuestion) Correct!")
-                .font(.system(size: 30))
+            .padding(.bottom)
             HStack {
                 Spacer()
                 Button {
@@ -158,11 +181,11 @@ struct ContentView: View {
                     showingAlert = true
                     } label: {
                         VStack {
-                            Image(systemName: "arrowtriangle.up.square.fill")
+                            Image(systemName: "arrowtriangle.up.circle.fill")
+                                .renderingMode(.original)
                                 .resizable()
                                 .frame(width: 50, height: 50)
-                                .foregroundColor(.blue)
-
+                                .foregroundColor(.blue).shadow(color: .gray, radius: 2, x: 0, y: 2)
                             Text("Start Over")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -173,10 +196,12 @@ struct ContentView: View {
                 chooseOperand(chosenOperand: chosenOperand)
                     } label: {
                         VStack {
-                            Image(systemName: "play.square.fill")
+                            Image(systemName: "play.circle.fill")
+                                .renderingMode(.original)
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.green)
+                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
                             Text("Skip Question")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -184,6 +209,7 @@ struct ContentView: View {
                 }
                 Spacer()
             }
+            Spacer()
                 }
         .alert(alertTitle, isPresented: $showingAlert) {
                 Button("Okay", role: .cancel) {
@@ -192,13 +218,19 @@ struct ContentView: View {
     } message: {
         Text(alertMessage)
         }
+    .background(.cyan)
     }
+    
     func chooseOperand(chosenOperand: String) {
         previousNumber = numberOne
+        previousSecondNumber = numberTwo
         var firstNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
-        let secondNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
+        var secondNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
         while previousNumber == firstNumber {
             firstNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
+        }
+        while previousSecondNumber == secondNumber {
+            secondNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
         }
         if firstNumber >= secondNumber {
             numberOne = firstNumber
@@ -230,6 +262,7 @@ struct ContentView: View {
             alertTitle = "Correct!"
             alertMessage = "Horsey neighs in joy at your answer"
             numberCorrect += 1
+            score += (levelNumber * 10)
             showingAlert = true
             Sounds.playSounds(soundfile: "Horse-Neigh-Quick-B-www.fesliyanstudios.com.mp3")
             chooseOperand(chosenOperand: chosenOperand)
