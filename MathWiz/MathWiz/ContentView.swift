@@ -38,8 +38,8 @@ struct ContentView: View {
     
     var body: some View {
             ScrollView {
-                Text("Level \(levelNumber)").font(.system(size: 20)).bold()
-                Text("Question \(numberOfQuestion) of 10").font(.system(size: 20))
+                Text("Level \(levelNumber)").font(.system(size: 20)).bold().foregroundColor(.white)
+                Text("Question \(numberOfQuestion) of 10").font(.system(size: 20)).foregroundColor(.white)
                 Image(uiImage: #imageLiteral(resourceName: "horse.png"))
                     .resizable()
                     .scaledToFit()
@@ -48,14 +48,15 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Text("Current Score: \(score)")
-                        .font(.system(size: 20))
+                        .font(.system(size: 20)).foregroundColor(.white)
                     Spacer()
                     Text("High Score: \(highScore)")
-                        .font(.system(size: 20))
+                        .font(.system(size: 20)).foregroundColor(.white)
                     Spacer()
                 }.padding()
                 Text("Pick a problem type:")
                     .font(.system(size: 20))
+                    .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                 HStack{
                     Button {
@@ -144,18 +145,18 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Text(String(Int(numberOne)))
-                            .font(.system(size: 50))
+                            .font(.system(size: 50)).foregroundColor(.white)
                         Text(displayedOperand)
-                            .font(.system(size: 50))
+                            .font(.system(size: 50)).foregroundColor(.white)
                         Text(String(Int(numberTwo)))
-                            .font(.system(size: 50))
+                            .font(.system(size: 50)).foregroundColor(.white)
                         Text("=")
-                            .font(.system(size: 50))
+                            .font(.system(size: 50)).foregroundColor(.white)
                         Spacer()
                     }.listRowBackground(Color.blue.opacity(0.05))
                     TextField("Answer", text: $milaAnswer)
                         .keyboardType(.numbersAndPunctuation)
-                        .font(.system(size: 50, design: .default))
+                        .font(.system(size: 50, design: .default)).foregroundColor(.white)
                             .onReceive(Just(milaAnswer)) { newValue in
                                 let filtered = newValue.filter { "0123456789.-".contains($0) }
                                 if filtered != newValue {
@@ -310,6 +311,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().preferredColorScheme(.dark)
+        ContentView()
     }
 }
