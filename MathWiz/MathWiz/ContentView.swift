@@ -24,22 +24,24 @@ struct ContentView: View {
     @State private var divideAnimation = 1.0
     @State private var numberCorrect = 0
     @State private var numberOfQuestion = 0
+    @State private var levelNumber = 1
+    @State private var previousNumber = 0.0
     
     var body: some View {
         VStack {
+            Text("Level \(levelNumber)").font(.system(size: 20))
             Image(uiImage: #imageLiteral(resourceName: "horse.png"))
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 200)
-            Text("Hello, Mila! What kind of math do you want to practice today?")
-                .fontWeight(.bold)
+                .frame(width: 150, height: 150)
+            Text("What kind of math do you want to practice today?")
                 .font(.system(size: 20))
                 .padding()
                 .multilineTextAlignment(.center)
             HStack{
                 Button {
                     if plusAnimation == 1.0 {
-                        plusAnimation += 0.5
+                        plusAnimation += 0.25
                     }
                    minusAnimation = 1.0
                    multiplyAnimation = 1.0
@@ -56,7 +58,7 @@ struct ContentView: View {
                 .animation(.default, value: plusAnimation)
                 Button {
                     if minusAnimation == 1.0 {
-                        minusAnimation += 0.5
+                        minusAnimation += 0.25
                     }
                     plusAnimation = 1.0
                     multiplyAnimation = 1.0
@@ -74,7 +76,7 @@ struct ContentView: View {
                 .animation(.default, value: minusAnimation)
                 Button {
                     if multiplyAnimation == 1.0 {
-                        multiplyAnimation += 0.5
+                        multiplyAnimation += 0.25
                     }
                     plusAnimation = 1.0
                     minusAnimation = 1.0
@@ -91,7 +93,7 @@ struct ContentView: View {
                 .animation(.default, value: multiplyAnimation)
                 Button {
                     if divideAnimation == 1.0 {
-                        divideAnimation += 0.5
+                        divideAnimation += 0.25
                     }
                     plusAnimation = 1.0
                     minusAnimation = 1.0
@@ -102,50 +104,86 @@ struct ContentView: View {
                     Image(systemName: "divide.square.fill").resizable()
                         .frame(width: 50, height: 50)
                         .padding(.horizontal)
-                        .foregroundColor(.green)
+                        .foregroundColor(.yellow)
                 }
                 .scaleEffect(divideAnimation)
                 .animation(.default, value:divideAnimation)
             }
-            HStack {
-                Text("n = ")
-                    .font(.system(size: 75))
-                Text(String(Int(numberOne)))
-                    .font(.system(size: 75))
-                Text(displayedOperand)
-                    .font(.system(size: 75))
-                Text(String(Int(numberTwo)))
-                    .font(.system(size: 75))
-            }
-            TextField("Answer", text: $milaAnswer)
-                    .font(Font.system(size: 60, design: .default))
-                    .keyboardType(.numberPad)
-                    .onReceive(Just(milaAnswer)) { newValue in
-                        let filtered = newValue.filter { "0123456789.-".contains($0) }
-                        if filtered != newValue {
-                            self.milaAnswer = filtered
+            Form {
+                HStack {
+                    Spacer()
+                    Text(String(Int(numberOne)))
+                        .font(.system(size: 50))
+                    Text(displayedOperand)
+                        .font(.system(size: 50))
+                    Text(String(Int(numberTwo)))
+                        .font(.system(size: 50))
+                    Text("= ? ")
+                        .font(.system(size: 50))
+                    Spacer()
+                }
+                TextField("Answer", text: $milaAnswer)
+                        .font(Font.system(size: 50, design: .default))
+                        .keyboardType(.numberPad)
+                        .onReceive(Just(milaAnswer)) { newValue in
+                            let filtered = newValue.filter { "0123456789.-".contains($0) }
+                            if filtered != newValue {
+                                self.milaAnswer = filtered
+                            }
                         }
-                    }
                     .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal)
             Button {
                 checkAnswer(milasAnswer: milaAnswer)
             } label: {
                 Text("Submit")
                     .frame(minWidth: 0, maxWidth: 200)
                     .padding()
-                    .font(.system(size: 18))
+                    .font(.system(size: 20))
                     .foregroundColor(.white)
                     .background(RoundedRectangle(cornerRadius: 25).fill(Color.red))
                     }
             Text("\(numberCorrect) out of \(numberOfQuestion) Correct!")
-                .font(.system(size: 25))
-            Button {
-            chooseOperand(chosenOperand: chosenOperand)
-                } label: {
-             Image(systemName: "play.square.fill").resizable()
-                 .frame(width: 50, height: 50)
-                 .foregroundColor(.green)
+                .font(.system(size: 30))
+            HStack {
+                Spacer()
+                Button {
+                chooseOperand(chosenOperand: chosenOperand)
+                    numberCorrect = 0
+                    numberOfQuestion = 0
+                    levelNumber = 1
+                    alertTitle = "Level \(levelNumber)"
+                    alertMessage = "Let's start simple and work our way up."
+                    showingAlert = true
+                    } label: {
+                        VStack {
+                            Image(systemName: "arrowtriangle.up.square.fill")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.blue)
+
+                            Text("Start Over")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                            }
                 }
+                Spacer()
+                Button {
+                chooseOperand(chosenOperand: chosenOperand)
+                    } label: {
+                        VStack {
+                            Image(systemName: "play.square.fill")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.green)
+                            Text("Skip Question")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                            }
+                }
+                Spacer()
+            }
                 }
         .alert(alertTitle, isPresented: $showingAlert) {
                 Button("Okay", role: .cancel) {
@@ -156,9 +194,12 @@ struct ContentView: View {
         }
     }
     func chooseOperand(chosenOperand: String) {
-        let firstNumber = round(Double.random(in: 0..<79))
-        let secondNumber = round(Double.random(in: 0..<79))
-        numberOfQuestion += 1
+        previousNumber = numberOne
+        var firstNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
+        let secondNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
+        while previousNumber == firstNumber {
+            firstNumber = round(Double.random(in: 0..<9) * Double(levelNumber))
+        }
         if firstNumber >= secondNumber {
             numberOne = firstNumber
             numberTwo = secondNumber
@@ -184,16 +225,39 @@ struct ContentView: View {
         }
     }
     func checkAnswer(milasAnswer: String) {
+        numberOfQuestion += 1
         if Double(milasAnswer) == correctAnswer {
             alertTitle = "Correct!"
-            alertMessage = "Pistol neighs in joy at your answer"
+            alertMessage = "Horsey neighs in joy at your answer"
             numberCorrect += 1
             showingAlert = true
             Sounds.playSounds(soundfile: "Horse-Neigh-Quick-B-www.fesliyanstudios.com.mp3")
+            chooseOperand(chosenOperand: chosenOperand)
         } else {
+            if correctAnswer.truncatingRemainder(dividingBy: 1) == 0 {
+                alertMessage = "The correct is \(Int(correctAnswer))"
+            } else {
+                alertMessage = "The correct is \(correctAnswer)"
+            }
             alertTitle = "Try again"
-            alertMessage = "The correct is \(correctAnswer)"
             showingAlert = true
+            Sounds.playSounds(soundfile: "Nope-sound-effect.mp3")
+        }
+        if numberOfQuestion == 10 && numberCorrect > 8 {
+            levelNumber += 1
+            alertTitle = "Level \(levelNumber)"
+            alertMessage = "Great job! Let's try some slightly harder problems."
+            showingAlert = true
+            numberOfQuestion = 0
+            numberCorrect = 0
+            Sounds.playSounds(soundfile: "Quiz-correct-sound-with-applause.mp3")
+        } else if numberOfQuestion == 10 && numberCorrect <= 7 {
+            alertTitle = "Level \(levelNumber)"
+            alertMessage = "Practice makes perfect. Let's try that level again."
+            showingAlert = true
+            numberOfQuestion = 0
+            numberCorrect = 0
+            Sounds.playSounds(soundfile: "You-lose-sound-effect.mp3")
         }
     }
 }
