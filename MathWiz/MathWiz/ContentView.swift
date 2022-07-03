@@ -38,7 +38,6 @@ struct ContentView: View {
     
     var body: some View {
             ScrollView {
-                Spacer()
                 Text("Level \(levelNumber)").font(.system(size: 20)).bold().foregroundColor(.white)
                 Text("Question \(numberOfQuestion) of 9").font(.system(size: 18)).foregroundColor(.white)
                 Image(uiImage: #imageLiteral(resourceName: "horse.png"))
@@ -180,7 +179,7 @@ struct ContentView: View {
                         .background(RoundedRectangle(cornerRadius: 25).fill(Color.red))
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                         }
-
+                .padding(.bottom)
                 HStack {
                     Spacer()
                     Button {
